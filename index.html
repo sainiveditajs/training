@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yes or No Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Did you train?</h1>
+
+  <form>
+    <label>
+      <input type="radio" name="answer" value="yes"> Yes
+    </label>
+    
+    <label>
+      <input type="radio" name="answer" value="no"> No
+    </label>
+    
+    <button type="button" onclick="submitForm()">Submit</button>
+  </form>
+
+  <!-- Confetti library script -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+  <script>
+    function submitForm() {
+      var selectedAnswer = document.querySelector('input[name="answer"]:checked');
+
+      if (selectedAnswer) {
+        if (selectedAnswer.value === 'yes') {
+          throwConfetti();
+          alert('You still suck anyway');
+        } else {
+          alert('Yep, seems about right. Get off your ass');
+        }
+      } else {
+        alert('Please select an answer.');
+      }
+    }
+
+    function throwConfetti() {
+      particlesJS('confetti-container', {
+        particles: {
+          number: {
+            value: 200
+          },
+          color: {
+            value: '#FFD700'
+          },
+          shape: {
+            type: 'circle'
+          },
+          size: {
+            value: 5
+          },
+          move: {
+            enable: true,
+            speed: 5
+          }
+        }
+      });
+    }
+  </script>
+
+  <div id="confetti-container"></div>
+</body>
+</html>
